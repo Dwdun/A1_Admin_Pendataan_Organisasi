@@ -30,6 +30,8 @@ class Main:
                     else:
                         is_input = False
             case 2:
+                print("\n=== OUTPUT DATA ===")
+                Outputdata.tampil_data(data_mahasiswa)
             case 3:
             case 4:
             case 5:
