@@ -1,5 +1,5 @@
 class Main:
-    from anggota_4_bima.input_data import InputData
+    from input_data import InputData
     data_mahasiswa = []
     is_input = True
     
