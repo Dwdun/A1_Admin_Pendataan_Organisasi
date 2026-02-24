@@ -1,12 +1,11 @@
-import DeleteData
-import input_data
-import Outputdata
-import search
-import Updatedata
-import sort
+from anggota_5_irfan import DeleteData
+from anggota_4_bima.input_data import InputData
+from anggota_2_anindya import Outputdata
+from anggota_3_fatih import search
+from anggota_1_faqih import Updatedata
+from anggota_3_fatih import sort
 
 class Main:
-    from input_data import InputData
     data_mahasiswa = []
     is_input = True
     token = 0
