@@ -40,6 +40,43 @@ class Main:
                 print("\n=== OUTPUT DATA ===")
                 Outputdata.tampil_data(data_mahasiswa)
             case 3:
+                print("\nMenu Pencarian Data")
+                print("1. Cari berdasarkan NIM")
+                print("2. Cari berdasarkan Nama")
+                print("3. Keluar")
+                
+                pilihan_search = input("Pilih menu pencarian (1-3): ")
+                
+                match pilihan_search:
+                    case "1":
+                        target_nim = input("Masukkan NIM yang dicari: ")
+                        hasil = search.searchByNim(target_nim, data_mahasiswa)
+                        
+                        if type(hasil) == list:
+                            print("\n--- Data Ditemukan ---")
+                            print(f"NIM    : {hasil[0]}")
+                            print(f"Nama   : {hasil[1]}")
+                            print(f"Divisi : {hasil[2]}")
+                            print("----------------------")
+                        else:
+                            print(f"\n{hasil}") 
+                            
+                    case "2":
+                        target_nama = input("Masukkan potongan Nama yang dicari: ")
+                        hasil = search.searchByNama(target_nama, data_mahasiswa)
+                
+                        if type(hasil) == list:
+                            print("\n--- Data Ditemukan ---")
+                            print(f"NIM    : {hasil[0]}")
+                            print(f"Nama   : {hasil[1]}")
+                            print(f"Divisi : {hasil[2]}")
+                            print("----------------------")
+                        else:
+                            print(f"\n{hasil}") 
+                    case "3":
+                        print("Batal pencarian dan keluar.")
+                    case _:
+                        print("Pilihan tidak valid, silahkan coba lagi.")
             case 4:
                 target_nim = input("Masukkan NIM data yang akan dihapus: ")
                 data_mahasiswa = DeleteData.DeleteData(data_mahasiswa, target_nim)
