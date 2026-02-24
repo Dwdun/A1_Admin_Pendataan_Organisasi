@@ -3,6 +3,7 @@ import input_data
 import Outputdata
 import search
 import Updatedata
+import sort
 
 class Main:
     from input_data import InputData
@@ -15,15 +16,21 @@ class Main:
         print("1. Input Data")
         print("2. Output Data")
         print("3. Searching Data")
-        print("4.Delete Data")
-        print("5.Update Data")
+        print("4. Delete Data")
+        print("5. Update Data")
+        print("6. Sort Data")
         print("0. Keluar Program")
-        token = int(input("Masukkan token menu"))
+        token = int(input("Masukkan menu : "))
         match token:
             case 1:
                  while is_input:
                     input_mhs = InputData()
-                    data_mahasiswa.append(input_mhs.tambah())
+                    hasil_input_dict = input_mhs.tambah()
+                    
+                    for mhs in hasil_input_dict:
+                        data_format_list = [mhs["nim"], mhs["nama"], mhs["divisi"]]
+                        data_mahasiswa.append(data_format_list)
+                        
                     lanjut = input("Lanjut Isi? (Y/N): ")
                     if lanjut == "Y" or lanjut == "y":
                         is_input = True
@@ -71,4 +78,36 @@ class Main:
                         print("Batal update dan keluar")
                     case _:
                         print("Silahkan input kembali di menu")
+            case 6:
+                print("\nMenu Sort Data")
+                print("1. Sort Data berdasarkan NIM (Ascending)")
+                print("2. Sort Data berdasarkan NIM (Descending)")
+                print("3. Sort Data berdasarkan Nama (Ascending)")
+                print("4. Sort Data berdasarkan Nama (Descending)")
+                print("5. Keluar")
                 
+                pilihan_sort = input("Pilih menu sort (1-5): ")
+                
+                match pilihan_sort:
+                    case "1":
+                        temp = sort.sortByNimAsc(data_mahasiswa)
+                        for mhs in temp:
+                            print(mhs)
+                    case "2":
+                        temp = sort.sortByNimDesc(data_mahasiswa)
+                        for mhs in temp:
+                            print(mhs)
+                    case "3":
+                        temp = sort.sortByNamaAsc(data_mahasiswa)
+                        for mhs in temp:
+                            print(mhs)
+                    case "4":
+                        temp = sort.sortByNamaDesc(data_mahasiswa)
+                        for mhs in temp:
+                            print(mhs)
+                    case "5":
+                        print("Batal sort dan keluar")
+                    case _:
+                        print("Silahkan input kembali di menu")
+            case 0:
+                break
