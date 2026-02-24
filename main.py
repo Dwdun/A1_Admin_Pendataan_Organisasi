@@ -37,8 +37,12 @@ class Main:
                     else:
                         is_input = False
             case 2:
+                print("\n=== OUTPUT DATA ===")
+                Outputdata.tampil_data(data_mahasiswa)
             case 3:
-            case 4:              
+            case 4:
+                target_nim = input("Masukkan NIM data yang akan dihapus: ")
+                data_mahasiswa = DeleteData.DeleteData(data_mahasiswa, target_nim)
             case 5:
                 print("\nMenu Update Data")
                 print("1. Update Nama berdasarkan NIM")
